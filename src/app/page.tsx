@@ -1,5 +1,7 @@
+import ProductList from "./_components/Product/components/ProductList";
+
 const Home = () => {
-  return <></>;
+  return <ProductList />;
 };
 
 export default Home;
