@@ -5,8 +5,11 @@ import Link from "next/link";
 import Nav from "../nav/Nav";
 import HorizontalDivider from "@/app/_components/HorizontalDivider";
 import { ShoppingCartOutlined } from "@ant-design/icons";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
+  const router = useRouter();
+
   return (
     <header className="flexCol">
       <div className="flex justify-between text-gray-400 py-2">
@@ -19,7 +22,10 @@ const Header = () => {
       </div>
       <HorizontalDivider />
       <div className="flex flex-col gap-2 justify-between lg:flex-row items-center py-2">
-        <div className="flexRowCenter gap-1 text-3xl font-medium text-main order-2 lg:order-1">
+        <div
+          className="flexRowCenter gap-1 text-3xl font-medium text-main order-2 lg:order-1 cursor-pointer"
+          onClick={() => router.push("/")}
+        >
           <ShoppingCartOutlined />
           <div>셀럽셀러</div>
         </div>
