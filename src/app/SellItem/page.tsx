@@ -30,8 +30,8 @@ const SellItem = () => {
       <div className="flex justify-center text-xl font-normal text-main">
         판매 상품 등록
       </div>
-      <div className="flex flex-col sm:flex-row">
-        <p className="min-w-32 pb-1 sm:py-2">제목</p>
+      <div className="flexCol sm:flex-row">
+        <p className="min-w-24 sm:min-w-32 pb-1 sm:py-2">제목</p>
         <div className="flex sm:w-1/2 min-w-80">
           <input
             id="title"
@@ -47,8 +47,8 @@ const SellItem = () => {
         </div>
       </div>
       <HorizontalDivider />
-      <div className="flex flex-col sm:flex-row">
-        <p className="min-w-32 pb-1 sm:py-2">상품이미지</p>
+      <div className="flexCol sm:flex-row">
+        <p className="min-w-24 sm:min-w-32 pb-1 sm:py-2">상품이미지</p>
         <div className="flex gap-2">
           <ImageUpload />
           <ImageUpload />
@@ -57,7 +57,7 @@ const SellItem = () => {
       </div>
       <HorizontalDivider />
       <div className="flexRowCenter relative h-[42px]">
-        <p className="min-w-32">카테고리</p>
+        <p className="min-w-24 sm:min-w-32">카테고리</p>
         <div className="flexCol">
           <button
             className={`flex justify-between gap-2 border ${
@@ -82,9 +82,9 @@ const SellItem = () => {
         </div>
       </div>
       <HorizontalDivider />
-      <div className="flex flex-col sm:flex-row">
-        <p className="min-w-32 pb-1 sm:py-2">거래지역</p>
-        <div className="flexCol gap-2 min-w-72">
+      <div className="flex">
+        <p className="min-w-24 sm:min-w-32 pb-1 sm:py-2">거래지역</p>
+        <div className="flexCol gap-2 w-60 sm:min-w-72">
           <div className="flex gap-2">
             <Button id="basic">내 위치</Button>
             <Button id="basic">최근 지역</Button>
@@ -100,7 +100,7 @@ const SellItem = () => {
       </div>
       <HorizontalDivider />
       <div className="flexRowCenter">
-        <p className="min-w-32">상태</p>
+        <p className="min-w-24 sm:min-w-32">상태</p>
         <div className="flex min-w-48 gap-10">
           <label className="flex gap-2">
             <input type="radio" id="used" />
@@ -114,7 +114,7 @@ const SellItem = () => {
       </div>
       <HorizontalDivider />
       <div className="flexRowCenter">
-        <p className="min-w-32">교환</p>
+        <p className="min-w-24 sm:min-w-32">교환</p>
         <div className="flex min-w-52 gap-10">
           <label className="flex gap-2">
             <input type="radio" id="unExchange" />
@@ -127,9 +127,9 @@ const SellItem = () => {
         </div>
       </div>
       <HorizontalDivider />
-      <div className="flex flex-col sm:flex-row">
-        <p className="min-w-32 pb-1 sm:py-2">가격</p>
-        <div className="flexCol min-w-64 gap-2">
+      <div className="flex">
+        <p className="min-w-24 sm:min-w-32 pb-1 sm:py-2">가격</p>
+        <div className="flexCol min-w-52 gap-2">
           <div className="flex">
             <input
               type="number"
@@ -151,8 +151,8 @@ const SellItem = () => {
         </div>
       </div>
       <HorizontalDivider />
-      <div className="flex flex-col sm:flex-row">
-        <p className="min-w-32 pb-1 sm:py-2">설명</p>
+      <div className="flexCol sm:flex-row">
+        <p className="min-w-24 sm:min-w-32 pb-1 sm:py-2">설명</p>
         <div className="flexCol sm:w-1/2 min-w-80 gap-1">
           <textarea
             id="description"
@@ -168,7 +168,7 @@ const SellItem = () => {
       </div>
       <HorizontalDivider />
       <div className="flex">
-        <p className="min-w-32 py-2">수량</p>
+        <p className="min-w-24 sm:min-w-32 py-2">수량</p>
         <div className="flex min-w-52">
           <input
             type="number"
