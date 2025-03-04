@@ -11,8 +11,10 @@ const AsideMenu = () => {
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
     >
-      {categoryMenu.map((menu) => (
-        <li className="categoryItem">{menu}</li>
+      {categoryMenu.map((menu, index) => (
+        <li className="categoryItem" key={index}>
+          {menu}
+        </li>
       ))}
     </ul>
   );
