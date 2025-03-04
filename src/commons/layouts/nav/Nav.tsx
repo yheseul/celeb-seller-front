@@ -4,13 +4,14 @@ import {
   MessageOutlined,
   ShopOutlined,
 } from "@ant-design/icons";
+import Link from "next/link";
 
 const Nav = () => {
   return (
     <nav className="flex gap-4 h-4 order-2 lg:order-1">
       <div className="navMenu">
         <DollarOutlined />
-        <div>판매하기</div>
+        <Link href="/SellItem">판매하기</Link>
       </div>
       <VerticalDivider />
       <div className="navMenu">

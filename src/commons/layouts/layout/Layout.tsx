@@ -9,7 +9,7 @@ const Layout = ({
 }>) => {
   return (
     <div className="flexCol gap-2 w-full relative">
-      <div className="sticky bg-white top-0">
+      <div className="sticky bg-white top-0 z-20">
         <HoverProvider>
           <Header />
           <Aside />

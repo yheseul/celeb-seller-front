@@ -2,8 +2,9 @@ import { ButtonProps } from "../types/button.types";
 
 const Button = ({ children, onClick, id }: ButtonProps) => {
   const colorClass = {
+    basic: "bg-white border-gray-300",
     disabled: "bg-gray-300 border-gray-300 text-white",
-    default: "bg-main border-main",
+    default: "bg-main border-main text-white",
     kakao: "bg-kakao border-kakao",
     naver: "bg-naver border-naver",
     google: "bg-white",

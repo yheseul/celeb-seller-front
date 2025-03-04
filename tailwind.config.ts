@@ -11,7 +11,7 @@ const config: Config = {
         foreground: "var(--foreground)",
         main: "#10b981",
         kakao: "#f9e000",
-        naver: "#03c75a"
+        naver: "#03c75a",
       },
     },
   },

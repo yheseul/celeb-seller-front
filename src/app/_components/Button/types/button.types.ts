@@ -1,5 +1,5 @@
 export interface ButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
-  id: "disabled" | "default" | "kakao" | "naver" | "google";
+  id: "basic" | "disabled" | "default" | "kakao" | "naver" | "google";
 }

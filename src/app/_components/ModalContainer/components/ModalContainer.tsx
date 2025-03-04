@@ -21,7 +21,7 @@ const ModalContainer = ({
       className="fixed inset-0 z-40 w-full bg-black bg-opacity-50"
       onClick={() => router.back()}
     >
-      <div className="fixed inset-0 z-50 flex items-center justify-center">
+      <div className="fixed inset-0 z-50 flexRowCenter justify-center">
         <form
           className="flex flex-col relative h-1/2 min-h-[544px] w-1/3 min-w-[370px] max-w-md gap-4 rounded-2xl bg-white px-6 pb-4 pt-11"
           onClick={(event) => event.stopPropagation()}
@@ -52,7 +52,7 @@ const ModalContainer = ({
           </Button>
           {isLogin && (
             <div className="flex flex-col gap-2">
-              <div className="flex items-center">
+              <div className="flexRowCenter">
                 <HorizontalDivider />
                 <div className="w-56 font-medium text-center text-xs text-gray-500">
                   SNS LOGIN

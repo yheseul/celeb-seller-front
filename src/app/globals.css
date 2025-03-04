@@ -25,3 +25,8 @@ body {
     text-wrap: balance;
   }
 }
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and 엣지 */
+  scrollbar-width: none; /* 파이어폭스 */
+}
