@@ -1,9 +1,8 @@
-"use client";
-
 import Image from "next/image";
-import { ProductCardProps } from "../types/product.types";
+import { IProduct } from "../types/product.types";
+import formatTimeAgo from "@/commons/utils/formatTimeAgo";
 
-const ProductCard = ({ imageUrl, name, price }: ProductCardProps) => {
+const ProductCard = ({ imageUrl, name, price, createdAt }: IProduct) => {
   return (
     <div className="flexCol border border-gray-300 rounded-sm overflow-hidden">
       <div className="relative w-full aspect-square">
@@ -17,8 +16,10 @@ const ProductCard = ({ imageUrl, name, price }: ProductCardProps) => {
       <div className="p-2">
         <div>{name}</div>
         <div className="flex justify-between items-center">
-          <div className="font-semibold">{price}원</div>
-          <div className="text-gray-300 text-sm">1일 전</div>
+          <div className="font-semibold">{price.toLocaleString()}원</div>
+          <div className="text-gray-300 text-sm">
+            {formatTimeAgo(createdAt)}
+          </div>
         </div>
       </div>
     </div>

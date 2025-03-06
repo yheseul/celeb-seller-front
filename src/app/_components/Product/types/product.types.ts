@@ -1,13 +1,7 @@
 export interface IProduct {
-  id: number;
+  id?: number;
   name: string;
   imageUrl: string;
   price: number;
-  createdAt: string;
-}
-
-export interface ProductCardProps {
-  imageUrl: string;
-  name: string;
-  price: number;
+  createdAt: number;
 }
