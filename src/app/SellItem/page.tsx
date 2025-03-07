@@ -6,12 +6,30 @@ import ImageUpload from "../_components/SellItem/components/ImageUpload";
 import { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
 import { CATEGORY_MENU } from "@/commons/constants/layout.constants";
 import Button from "../_components/Button/components/Button";
+import axiosInstance from "@/api/axiosInstance";
 
 const SellItem = () => {
   const [titleLength, setTitleLength] = useState(0);
   const [descriptionLength, setDescriptionLength] = useState(0);
   const [category, setCategory] = useState(false);
   const categoryMenu = Object.values(CATEGORY_MENU);
+  const [formData, setFormData] = useState({
+    name: "",
+    imageUrl: "시나모롤.jpg",
+    price: "",
+    createdAt: "1709613113793",
+  });
+
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { id, value } = event.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [id]: value,
+    }));
+
+    console.log(formData);
+  };
 
   const handleCharacterLimit = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -25,6 +43,22 @@ const SellItem = () => {
     }
   };
 
+  const handelInsertProduct = () => {
+    axiosInstance
+      .post("/insertProduct", {
+        name: formData.name,
+        imageUrl: formData.imageUrl,
+        price: formData.price,
+        createdAt: formData.createdAt,
+      })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => {
+        throw new Error(err);
+      });
+  };
+
   return (
     <div className="flexCol gap-4 pb-4">
       <div className="flex justify-center text-xl font-normal text-main">
@@ -34,12 +68,16 @@ const SellItem = () => {
         <p className="min-w-24 sm:min-w-32 pb-1 sm:py-2">제목</p>
         <div className="flex sm:w-1/2 min-w-80">
           <input
-            id="title"
+            id="name"
             type="text"
             placeholder="상품 제목을 입력해 주세요."
             className="border-gray-300 border p-2 w-full outline-none"
-            onChange={handleCharacterLimit}
             maxLength={40}
+            // 타이핑마다 호출됨 에바임
+            onChange={(event) => {
+              handleCharacterLimit(event);
+              handleInputChange(event);
+            }}
           />
           <p className="flexRowCenter w-10 ml-2 text-gray-400 font-thin text-sm">
             {titleLength}/40
@@ -132,9 +170,11 @@ const SellItem = () => {
         <div className="flexCol min-w-52 gap-2">
           <div className="flex">
             <input
+              id="price"
               type="number"
               placeholder="숫자만 입력해 주세요."
               className="border-gray-300 border p-2 w-full outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+              onChange={handleInputChange}
             />
             <p className="flexRowCenter px-3">원</p>
           </div>
@@ -181,7 +221,9 @@ const SellItem = () => {
       <div className="flex justify-center pt-4">
         <div className="flex gap-2 w-56">
           <Button id="basic">취소하기</Button>
-          <Button id="default">등록하기</Button>
+          <Button id="default" onClick={handelInsertProduct}>
+            등록하기
+          </Button>
         </div>
       </div>
     </div>
