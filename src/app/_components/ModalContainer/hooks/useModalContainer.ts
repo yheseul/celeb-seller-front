@@ -1,5 +1,6 @@
 "use client";
 
+import axiosInstance from "@/api/axiosInstance";
 import { TRecord } from "@/commons/types/component.types";
 import { signupSchema } from "@/commons/zod/signupSchema";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -66,6 +67,35 @@ const useModalContainer = () => {
   const isValid = Object.keys(errors).length === 0;
   const isFormValid = isLogin ? isLoginAllFilled : isSignupAllFilled && isValid;
 
+  const handleLogin = () => {
+    axiosInstance
+      .post("/login", {
+        email: formData.email,
+        pwd: formData.password,
+      })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => {
+        throw new Error(err);
+      });
+  };
+
+  const handleRegister = () => {
+    axiosInstance
+      .post("/insertMember", {
+        email: formData.email,
+        pwd: formData.password,
+        nickname: formData.name,
+      })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => {
+        throw new Error(err);
+      });
+  };
+
   return {
     router,
     touched,
@@ -73,6 +103,8 @@ const useModalContainer = () => {
     handleInputChange,
     isFormValid,
     isLogin,
+    handleLogin,
+    handleRegister,
   };
 };
 

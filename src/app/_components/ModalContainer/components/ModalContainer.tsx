@@ -13,8 +13,16 @@ const ModalContainer = ({
   inputs,
   button,
 }: ModalContainerProps) => {
-  const { router, touched, errors, handleInputChange, isFormValid, isLogin } =
-    useModalContainer();
+  const {
+    router,
+    touched,
+    errors,
+    handleInputChange,
+    isFormValid,
+    isLogin,
+    handleLogin,
+    handleRegister,
+  } = useModalContainer();
 
   return (
     <div
@@ -47,7 +55,10 @@ const ModalContainer = ({
               />
             ))}
           </div>
-          <Button id={`${isFormValid ? "default" : "disabled"}`}>
+          <Button
+            id={`${isFormValid ? "default" : "disabled"}`}
+            onClick={isLogin ? handleLogin : handleRegister}
+          >
             {button}
           </Button>
           {isLogin && (
