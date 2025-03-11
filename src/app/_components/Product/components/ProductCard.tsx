@@ -25,13 +25,14 @@ const ProductCard = ({ imageUrl, name, price, createdAt, id }: IProduct) => {
   const fetchLoggedInUser = (productId?: number) => {
     if (!productId) return;
 
-    setAdd((prev) => !prev);
-
     axiosInstance
       .get("/getLoggedInUser")
       .then((response) => {
         if (response.data) {
+          setAdd((prev) => !prev);
           addFavoriteItem(productId, response.data.email);
+        } else {
+          alert("로그인 후 이용해 주세요.");
         }
       })
       .catch((err) => {
