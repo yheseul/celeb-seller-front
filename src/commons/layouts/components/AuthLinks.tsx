@@ -23,9 +23,14 @@ const AuthLinks = () => {
     axiosInstance
       .get("/getLoggedInUser")
       .then((response) => {
-        setUser(response.data);
+        if (response.data) {
+          setUser(response.data);
+        } else {
+          setUser(null);
+        }
       })
       .catch((err) => {
+        setUser(null);
         throw new Error(err);
       });
   }, []);
@@ -48,8 +53,12 @@ const AuthLinks = () => {
               onMouseOut={handleMouseOut}
             >
               {myPageMenu.map((menu, index) => (
-                <li className="categoryItem" key={index}>
-                  {menu}
+                <li
+                  className="categoryItem cursor-pointer"
+                  key={index}
+                  onClick={menu.onClick}
+                >
+                  {menu.label}
                 </li>
               ))}
             </ul>

@@ -1,3 +1,4 @@
+import { useLogout } from "../layouts/hooks/useLogout";
 import { TRecord } from "../types/component.types";
 
 export const CATEGORY_MENU: TRecord = {
@@ -12,9 +13,9 @@ export const CATEGORY_MENU: TRecord = {
   MENU9: "가전제품",
 };
 
-export const MYPAGE_MENU: TRecord = {
-  MENU1: "내상점",
-  MENU2: "찜목록",
-  MENU3: "고객센터",
-  MENU4: "로그아웃",
+export const MYPAGE_MENU = {
+  MENU1: { label: "내상점", onClick: () => alert("내상점 클릭") },
+  MENU2: { label: "찜목록", onClick: () => alert("찜목록 클릭") },
+  MENU3: { label: "고객센터", onClick: () => alert("고객센터 클릭") },
+  MENU4: { label: "로그아웃", onClick: useLogout },
 };
