@@ -96,7 +96,7 @@ const SellItem = () => {
       <HorizontalDivider />
       <div className="flexRowCenter relative h-[42px]">
         <p className="min-w-24 sm:min-w-32">카테고리</p>
-        <div className="flexCol">
+        <div className="flexCol relative">
           <button
             className={`flex justify-between gap-2 border ${
               category
@@ -109,9 +109,9 @@ const SellItem = () => {
             {category ? <CaretUpOutlined /> : <CaretDownOutlined />}
           </button>
           {category && (
-            <ul className="absolute top-full left-32 z-10 w-40 border-b border-x border-gray-300 bg-white h-64 overflow-y-auto no-scrollbar">
+            <ul className="absolute top-full right-0 z-10 w-40 border-b border-x border-gray-300 bg-white h-64 overflow-y-auto no-scrollbar">
               {categoryMenu.map((menu, index) => (
-                <li className="categoryItem" key={index}>
+                <li className="categoryItem cursor-pointer" key={index}>
                   {menu}
                 </li>
               ))}
