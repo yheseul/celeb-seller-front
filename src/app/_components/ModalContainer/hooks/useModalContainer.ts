@@ -4,7 +4,7 @@ import axiosInstance from "@/api/axiosInstance";
 import { TRecord } from "@/commons/types/component.types";
 import { signupSchema } from "@/commons/zod/signupSchema";
 import { useRouter, useSearchParams } from "next/navigation";
-import { ChangeEvent, MouseEvent, useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 const useModalContainer = () => {
   const router = useRouter();
@@ -67,8 +67,7 @@ const useModalContainer = () => {
   const isValid = Object.keys(errors).length === 0;
   const isFormValid = isLogin ? isLoginAllFilled : isSignupAllFilled && isValid;
 
-  const handleLogin = (event: MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
+  const handleLogin = () => {
     axiosInstance
       .post("/login", {
         email: formData.email,
@@ -82,8 +81,7 @@ const useModalContainer = () => {
       });
   };
 
-  const handleRegister = (event: MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
+  const handleRegister = () => {
     axiosInstance
       .post("/insertMember", {
         email: formData.email,
