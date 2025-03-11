@@ -12,7 +12,7 @@ const AsideMenu = () => {
       onMouseOut={handleMouseOut}
     >
       {categoryMenu.map((menu, index) => (
-        <li className="categoryItem" key={index}>
+        <li className="categoryItem cursor-pointer" key={index}>
           {menu}
         </li>
       ))}
