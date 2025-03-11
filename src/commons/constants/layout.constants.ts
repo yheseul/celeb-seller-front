@@ -11,3 +11,10 @@ export const CATEGORY_MENU: TRecord = {
   MENU8: "디지털",
   MENU9: "가전제품",
 };
+
+export const MYPAGE_MENU: TRecord = {
+  MENU1: "내상점",
+  MENU2: "찜목록",
+  MENU3: "고객센터",
+  MENU4: "로그아웃",
+};
