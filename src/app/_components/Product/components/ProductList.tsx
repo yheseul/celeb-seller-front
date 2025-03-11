@@ -28,6 +28,7 @@ const ProductList = () => {
           price={product.price}
           key={product.id}
           createdAt={product.createdAt}
+          id={product.id}
         />
       ))}
     </div>
