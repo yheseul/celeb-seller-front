@@ -68,6 +68,10 @@ const config: Config = {
         ".flexRowCenter": { "@apply flex items-center": {} },
         ".navMenu": { "@apply flex gap-1 items-center cursor-pointer": {} },
         ".categoryItem": { "@apply p-2 hover:bg-main hover:bg-opacity-50": {} },
+        ".cardHover": {
+          "@apply group-hover:border-main w-full cursor-pointer object-cover transition-transform duration-500 group-hover:scale-105 group-hover:border-2":
+            {},
+        },
       });
     }),
     tailwindAnimate,

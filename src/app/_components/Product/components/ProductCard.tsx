@@ -41,28 +41,30 @@ const ProductCard = ({ imageUrl, name, price, createdAt, id }: IProduct) => {
   };
 
   return (
-    <div className="flexCol border border-gray-300 rounded-sm overflow-hidden">
-      <div className="relative w-full aspect-square">
-        <Image
-          src={`/mock-images/${imageUrl}`}
-          alt={name}
-          fill
-          className="object-cover"
-        />
-      </div>
-      <div className="p-2">
-        <div className="flex justify-between items-center">
-          <div>{name}</div>
-          {add ? (
-            <HeartFilled onClick={() => fetchLoggedInUser(id)} />
-          ) : (
-            <HeartOutlined onClick={() => fetchLoggedInUser(id)} />
-          )}
+    <div className="group">
+      <div className="flexCol border border-gray-300 rounded-sm overflow-hidden cardHover">
+        <div className="relative w-full aspect-square">
+          <Image
+            src={`/mock-images/${imageUrl}`}
+            alt={name}
+            fill
+            className="object-cover"
+          />
         </div>
-        <div className="flex justify-between items-center">
-          <div className="font-semibold">{price.toLocaleString()}원</div>
-          <div className="text-gray-300 text-sm">
-            {formatTimeAgo(createdAt)}
+        <div className="p-2">
+          <div className="flex justify-between items-center">
+            <div>{name}</div>
+            {add ? (
+              <HeartFilled onClick={() => fetchLoggedInUser(id)} />
+            ) : (
+              <HeartOutlined onClick={() => fetchLoggedInUser(id)} />
+            )}
+          </div>
+          <div className="flex justify-between items-center">
+            <div className="font-semibold">{price.toLocaleString()}원</div>
+            <div className="text-gray-300 text-sm">
+              {formatTimeAgo(createdAt)}
+            </div>
           </div>
         </div>
       </div>
